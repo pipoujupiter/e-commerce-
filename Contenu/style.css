@@ -1,0 +1,30 @@
+html,body {
+    height: 100%;
+}
+
+body{
+    color:black;
+    background: antiquewhite;
+    font-family: 'Futura-Medium','Futura';
+}
+
+h1{
+    color: black;
+}
+
+#global {
+    min-height: 100%;
+    background: antiquewhite;
+    width: 70%;
+    margin: auto;
+    text-align: justify;
+    padding: 5px 20px;
+}
+
+#contenu{
+    margin-bottom: 30px;
+}
+
+#titre, #piedBlog{
+    text-align: center;
+}
