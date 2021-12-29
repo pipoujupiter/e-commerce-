@@ -2,7 +2,7 @@
 
 //Affiche la liste de tous les produits 
 function acceuil(){
-    $produit=getproduits();
+    $produits=getproduits();
 require 'Vue/vueAcceuil.php';
 }
 
