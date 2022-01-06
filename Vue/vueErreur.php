@@ -1,4 +1,4 @@
-<?php $titre='WEB4SHOP'; ?>
+<?php $this->titre= 'WEB4SHOP';?>
 
 
 <?php ob_start(); ?>

@@ -11,7 +11,6 @@
         <div id="global">
             <header>
                 <a href="index.php"><h1 id="titre"> WEB4SHOP </h1></a>
-                
             </header>
 
             <div id="contenu">
@@ -22,7 +21,7 @@
 
 
             <footer id="piedBlog">
-                Réalisé avec PHP, HTML et CSS.
+                Site web réalisé par Morin Alice et Valembois Auxane.
             </footer>
         </div>
     </body>
