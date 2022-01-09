@@ -28,9 +28,21 @@ class Routeur {
                     if ($id!=0){
                         $this->ctrlListeProduit->listeproduitsparcategorie($id);
                     }
+
                     else {
                         throw new Exception("Identifiant de la catégorie incorrecte");
                     }
+                }
+
+                else if($_GET['action']=='affiche'){
+                    $id=intval($this->Get_parametre($_GET,'id'));
+                    if ($id!=0){
+                        $this->ctrlProduit->afficheproduit($id);
+                    }
+                    else {
+                        throw new Exception("Identifiant du produit incorrect");
+                    }
+
                 }
             }
             else { // Aucune action définie : affichage de l'accueil

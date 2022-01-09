@@ -11,9 +11,10 @@ class ControleurProduit {
 
     //Affiche les détails sur un produit
     public function afficheproduit($params){
-        $produit = $this->produit->Get_produit($params['id']);
-
-        // $produit=produit($params['id']);
+        // $produit = $this->produit->Get_produit($params);
+        $query=$this->produit->Get_produit($params);
+        $produit=$query->fetch();
+        
         $vue = new Vue("Produit");
         $vue->generer(array('produit' => $produit));
     }

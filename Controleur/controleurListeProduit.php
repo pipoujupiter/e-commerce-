@@ -5,11 +5,11 @@ require_once 'Vue/vue.php';
 
 class ControleurListeProduit{
     private $produits;
-    private $categories;
+    // private $categories;
 
     public function __construct(){
         $this->produits = new Produit();
-        $this->categories = new Categorie();
+        // $this->categories = new Categorie();
     }
 
     //Affiche la liste des produits

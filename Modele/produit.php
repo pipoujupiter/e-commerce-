@@ -39,8 +39,9 @@ class Produit extends Modele {
 
         // else throw new Exception("Aucun produit ne correspond à l'identifiant '$idProduit'");
 
-        $sql='SELECT id AS id, cat_id AS catId, name AS name, description AS description, image AS image, price AS prix, quantity AS quantite FROM products WHERE id=id';
-        $produit=$this->executerRequete($sql,$idProduit);
+        $sql='SELECT * FROM products WHERE id='.$idProduit;
+        $produit=$this->executerRequete($sql);
+ 
         return $produit;
     }
 
