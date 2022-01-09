@@ -3,18 +3,23 @@
 require_once 'Controleur/controleurAccueil.php';
 require_once 'Controleur/controleurListeProduit.php';
 require_once 'Controleur/controleurProduit.php';
-
+require_once 'Controleur/controleurInscription.php';
+require_once 'Controleur/controleurConnexion.php';
 require_once 'Vue/vue.php';
 
 class Routeur {
     private $ctrlAccueil;
     private $ctrlListeProduit;
     private $ctrlProduit;
+    private $ctrlInscription;
+    private $ctrlConnexion;
 
     public function __construct(){
         $this->ctrlAccueil = new ControleurAccueil();
         $this->ctrlListeProduit = new ControleurListeProduit();
         $this->ctrlProduit = new ControleurProduit();
+        $this->ctrlInscription = new ControleurInscription();
+        $this->ctrlConnexion = new ControleurConnexion();
 
     }
 
@@ -44,23 +49,63 @@ class Routeur {
                     }
 
                 }
+                else if($_GET['action']=='inscription'){
+                    if(!$_SESSION['connecte']){ //Si l'utilisateur n'est pas connecté on affiche la page de connexion
+                      $this->ctrlInscription->formulaireInscription();
+      
+                      if(isset($_POST['validerInscription'])){
+      
+                        if($this->Get_parametre($_POST,'mdpInscription')==$this->Get_parametre($_POST,'confirmerMdpInscription')){
+                          $pseudo=$this->Get_parametre($_POST,'utilisateurInscription');
+      
+                          if($this->ctrlInscription->PossibiliteInscription($pseudo)){
+                            $hashMdpInscription=sha1($this->Get_parametre($_POST,'mdpInscription'));
+                            $this->ctrlInscription->Inscription($pseudo,$hashMdpInscription);
+                            $_SESSION['connecte']=true; //Une fois enregistré on connecte l'utilisateur
+                            $_SESSION['utilisateur']=$pseudo;
+                            header('Location:index.php');
+                          }
+                          else{
+                            throw new Exception("Utilisateur déjà existant");
+                          }
+                        }
+                        else{
+                          throw new Exception("Le mot de passe n'est pas le même");
+                        }
+                      } //Sil'utilisateur est déjà connecté on le déconnecte
+                    }
+                    else{
+                      $_SESSION['connecte']=false;
+                      header('Location:index.php');
+      
+                    }
+                  }
+                  else if($_GET['action']='connexion'){
+                    $this->ctrlConnexion->connexion();
+                    if(isset($_POST['validerConnexion'])){
+      
+                      $pseudo=$this->Get_parametre($_POST,'pseudoConnexion');
+                      $hashMdpConnexion=sha1($this->Get_parametre($_POST,'mdpConnexion'));
+      
+                      if($this->ctrlConnexion->ctrlVerifierUtilisateur($pseudo,$hashMdpConnexion)){
+                        $_SESSION['connecte']=true;
+                        $_SESSION['utilisateur']=$pseudo;
+                        header('Location:index.php');
+                      }
+                      else{
+                        throw new Exception("Utilisateur non enregistré");
+                      }
+                    }
+                  }
+                  else{
+                    throw new Exception("Action non valide");
+                  }
             }
             else { // Aucune action définie : affichage de l'accueil
                 $this->ctrlAccueil->listecategorie();
             }
 
-
-
-
-            // if (!isset($_GET['action']))
-            //     $action='liste';
-            //     ctrlAcceuil->
-            // elseif (isset($actions[$_GET['action']]))
-            //     $action = $_GET['action'];
-            // else
-            //     throw new Exception("L'action ".$_GET['action']." n'est pas valable pour la vue.");
-
-            }
+        }
 
         catch(Exception $e){
             $this->erreur($e->getMessage());
