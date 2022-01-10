@@ -1,15 +1,11 @@
-<?php $this->titre=$categories['name'];?>
+<?php $this->titre='Categorie';?>
 
 
-<?php ob_start(); ?>
-<?php foreach ($produits as $produit): ?>
+
+<?php foreach ($listeProduitsparCategorie as $produit): ?>
     
-    <a href="index.php?vue=produit&action=affiche&id=<?=$produit['id']?>">
+    <a href="<?="index.php?vue=produit&action=affiche&id=".$produit['id']?>">
         <p><?=$produit['name']?><p>
     </a>
        
 <?php endforeach; ?>
-<?php $contenu=ob_get_clean(); ?>
-
-
-<?php require 'Vue/gabarit.php'; ?>

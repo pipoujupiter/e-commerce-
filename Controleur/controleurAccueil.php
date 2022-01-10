@@ -5,15 +5,17 @@ require_once 'Vue/vue.php';
 class ControleurAccueil {
     private $categories;
 
-    public function _construct(){
+    public function __construct() {
         $this->categories = new Categorie();
     }
 
-    //Affiche la liste de toutes les catégories
-    public function liste($params){
-        $categories=categories();
+    //Affiche la liste des trois catégories
+    public function listecategorie() {
+        $listeCategories = $this->categories->Get_categories();
         $vue = new Vue("Accueil");
-        $vue->generer(array('categories' => $categories));   
+        $vue->generer(array('listeCategories' => $listeCategories));   
+        
+        
     }
 }
 

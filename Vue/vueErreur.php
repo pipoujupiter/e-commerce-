@@ -1,10 +1,3 @@
-<?php $this->titre= 'WEB4SHOP';?>
+<?php $this->titre='ISIWEB4Shop'; ?>
 
-
-<?php ob_start(); ?>
-
-<p> Une erreur est survenue : <?= $msgErreur ?></p>
-
-<?php $contenu=ob_get_clean(); ?>
-
-<?php require 'Vue/gabarit.php'; ?>
+<p>Une erreur est survenue : <?= $msgErreur ?></p>

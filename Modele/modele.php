@@ -1,26 +1,27 @@
-<?php 
-abstract class Modele {
+<?php abstract class Modele {
 
-    //Object PDO d'accès à la BD
+    // Objet PDO d'acces à la BD
     private $bdd;
-    
-    //Execute une requête SQL éventuellement paramétrée
-    protected function executerRequete($sql, $params=null){
-        if($params==null){
-            $resultat=$this->getBdd()->query($sql); //Execution directe
+
+    //Exécute une requête SQL éventuellement paramétrée
+    protected function executerRequete($sql, $params = null){
+        if($params == null){
+            $resultat = $this->getBDD()->query($sql); //exécution directe
         }
         else{
-            $resultat=$this->getBdd()->prepare($sql); //requete préparée
+            $resultat = $this->getBDD()->prepare($sql); //requête préparée
+            $resultat->execute($params);
         }
         return $resultat;
     }
 
-    //Renvoie un object de connexion à la BD en initialisant la connexion au besoin
-    private function getBdd(){
-        if($this->bdd==null){
-            $this-> $bdd = new PDO('mysql:host=localhost;dbname=web4shop;charset=utf8','root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    //Renvoie un objet de connexion à la BD en initialisant la connexion au besoin
+    private function getBDD(){
+        if($this->bdd == null){
+            $this->bdd=new PDO('mysql:host=localhost;dbname=web4shop;charset=utf8','root','');
+            array(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
+        
         return $this->bdd;
     }
 }
-
