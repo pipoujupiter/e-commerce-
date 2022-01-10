@@ -2,9 +2,12 @@
 
 
 
-
+<div class="polaroid">
     <img src="<?= "Contenu/images/".$produit['image']?>">
-    <p><?=$produit['name']?></p>
+    <div class="container">
+        <p><?=$produit['name']?></p>
+    </div>
+</div>
     <p><?=$produit['description'] ?></p> 
     <p>Prix : <?=$produit['price'] ?> €</p> 
 
