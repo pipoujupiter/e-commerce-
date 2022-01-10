@@ -25,17 +25,26 @@ else{
     <link rel="stylesheet" href="Contenu/style.css">
     <title><?=$titre?></title>
   </head>
-  <header>
-    <a href="index.php"><h1 id="titre"> WEB4SHOP </h1></a>
+
+  
+    <header>
+      <div class="topnav">
+        <a href="index.php"><h1 id="titre"> WEB4SHOP </h1></a>
+      </div>
     </header>
+  
 
   <body>
-    
-    <?=$contenu?>
+    <div class="content">
+      <?=$contenu?>
+    </div>
   </body>
+
+
   <footer id="piedBlog">
+    <div class="footer">
         Site web réalisé par Morin Alice et Valembois Auxane.
-            
+    </div>        
     </footer>
 
 </html>

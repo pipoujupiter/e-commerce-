@@ -5,7 +5,7 @@
 <?php foreach ($listeCategories as $categorie): ?>
     
     <a href="<?="index.php?vue=produit&action=listeparcategorie&cat=".$categorie['id'] ?>">
-        <p><?=$categorie['name']?><p>
+        <p id="nom_cat"><?=$categorie['name']?></p>
     </a>
        
 <?php endforeach; ?>
