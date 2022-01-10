@@ -1,4 +1,4 @@
-<?php $this->titre='Produit';?>
+<?php $this->titre=$produit['name'];?>
 
 
 
