@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="Contenu/style.css">
     <title><?=$titre?></title>
-    <script type="text/javascript" scr="Contenu/script.js">
-    </script>
+    
   </head>
 
   
