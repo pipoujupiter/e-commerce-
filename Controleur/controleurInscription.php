@@ -11,16 +11,16 @@ class ControleurInscription {
     }
 
     // Affiche le formulaire d'inscription
-    public function formulaireInscription(){
+    public function inscription(){
         $vue=new Vue('Inscription');
         $vue->generer(array(NULL));
     }
 
-    public function PossibiliteInscription($pseudo){
-       return $this->inscription->possibiliteInscription($pseudo);
+    public function ctrlCheckAvaibility($pseudo){
+       return $this->inscription->checkAvaibility($pseudo);
     }
 
-    public function Inscription($pseudo,$hashMdp){
-        $this->inscription->enregistrerUtilisateur($pseudo,$hashMdp);
+    public function ctrlRegister($pseudo,$hashMdp){
+        $this->inscription->register($pseudo,$hashMdp);
     }
 }

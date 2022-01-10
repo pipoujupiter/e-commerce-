@@ -178,7 +178,7 @@ INSERT INTO `orderitems` (`id`, `order_id`, `product_id`, `quantity`) VALUES
 
 CREATE TABLE `orders` (
   `id` int(20) NOT NULL,
-  `customer_id` varchar(100) NOT NULL,
+  `customer_id` int(11) NOT NULL,
   `registered` int(11) NOT NULL,
   `delivery_add_id` int(11) DEFAULT NULL,
   `payment_type` varchar(6) DEFAULT NULL,

@@ -1,6 +1,3 @@
-<?php $this->titre= 'Erreur';?>
+<?php $this->titre='ISIWEB4Shop'; ?>
 
-
-
-<p> Une erreur est survenue : <?= $msgErreur ?></p>
-
+<p>Une erreur est survenue : <?= $msgErreur ?></p>

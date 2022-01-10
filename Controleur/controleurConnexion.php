@@ -15,7 +15,7 @@ class ControleurConnexion{
         $vue->generer(array(NULL));
     }
 
-    public function ctrlVerifierUtilisateur($pseudo,$hashMdp){
-        return $this->connexion->rechercheUtilisateur($pseudo,$hashMdp);
+    public function ctrlCheckUser($pseudo,$hashMdp){
+        return $this->connexion->checkUser($pseudo,$hashMdp);
     }
 }

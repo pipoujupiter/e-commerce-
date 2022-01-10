@@ -28,8 +28,3 @@ class Produit extends Modele {
     }
 
 }
-
-
-
-
-
