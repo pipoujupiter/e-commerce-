@@ -29,7 +29,7 @@ else{
   
     <header>
       <div class="topnav">
-        <a href="index.php"><h1 id="titre"> WEB4SHOP </h1></a>
+        <a href="index.php"><img src="Contenu/images/logo.png"/></a>
       </div>
     </header>
   
