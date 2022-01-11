@@ -1,12 +1,16 @@
-<?php $this->titre='Produit';?>
+<?php $this->titre=$produit['name'];?>
 
 
 
-
+<div class="polaroid">
     <img src="<?= "Contenu/images/".$produit['image']?>">
-    <p><?=$produit['name']?></p>
-    <p><?=$produit['description'] ?></p> 
-    <p>Prix : <?=$produit['price'] ?> €</p> 
+    <div class="container">
+        <p><h3><?=$produit['name']?></h3></p>
+        <p><h4>Description :</h4><?=$produit['description'] ?></p> 
+        <p><h4>Prix : </h4><?=$produit['price'] ?> €</p> 
+    </div>
+</div>
+    
 
       
 

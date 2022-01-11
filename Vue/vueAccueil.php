@@ -5,7 +5,11 @@
 <?php foreach ($listeCategories as $categorie): ?>
     
     <a href="<?="index.php?vue=produit&action=listeparcategorie&cat=".$categorie['id'] ?>">
-        <p><?=$categorie['name']?><p>
+           
+            <img class="banniere" src="<?= "Contenu/images/".$categorie['name']?>">
+            <br>
+            <br>
+          
     </a>
        
 <?php endforeach; ?>

@@ -5,13 +5,14 @@ modèle object du MVC : commencé le 28 mais ne marchait pas - terminé le 04/01
 ajout d'un routeur : 06/01
 Site qui marche avec un modèle object : 09/01
 ajouter une page de connexion et d'inscription au site : 09/01 + fixé le 10/01
+CSS : 10/01 +11/01
 
 Problème :
-- double header quand on a un problème de connexion 
+- double header quand on a un problème de connexion (pas fixé)
 
 
 A Faire : 
-CSS -> Auxane
-faire un panier (si on a le temps)
+Faire l'espace commentaire en bas des produit (si on a le temps)
+faire un panier (pas eu le temps)
     
 
