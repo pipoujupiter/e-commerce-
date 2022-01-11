@@ -3,9 +3,10 @@
 
 
 <?php foreach ($listeProduitsparCategorie as $produit): ?>
-    
-    <a href="<?="index.php?vue=produit&action=affiche&id=".$produit['id']?>">
-        <p><?=$produit['name']?><p>
-    </a>
-       
+    <div class="polaroid">  
+        <a href="<?="index.php?vue=produit&action=affiche&id=".$produit['id']?>"><img src="<?= "Contenu/images/".$produit['image']?>"></a>
+        <div class="container">    
+            <p><?=$produit['name']?><p>
+        </div> 
+    </div>
 <?php endforeach; ?>

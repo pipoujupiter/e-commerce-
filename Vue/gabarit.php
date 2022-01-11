@@ -44,7 +44,8 @@
 
   <footer id="piedBlog">
     <div class="footer">
-        Site web réalisé par Morin Alice et Valembois Auxane.
+        <a href="https://forge.univ-lyon1.fr/groupe-alice-auxane/projet_web"><img src="Contenu/images/gitlab_logo.png"/></a>
+
     </div>        
     </footer>
 

@@ -1,15 +1,14 @@
 * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica;
   }
   
   body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
     text-align: center ;
   }
   
-  /* Style the top navigation bar */
+  /*Style barre de navigation */
   .topnav {
     overflow: hidden;
     background-color: #333;
@@ -32,7 +31,7 @@
     color: black;
   }
   
-  /* Style the content */
+  /* Style du contenu */
   .content {
     background-color: #ddd;
     padding: 10px;
@@ -40,18 +39,19 @@
     
   }
   
-  /* Style the footer */
+  /* Style du footer */
   .footer {
     background-color: #f1f1f1;
     padding: 10px;
-    text-align: justify;
+    
   }
 
+/*Images*/
 img{
     max-width: 200px;
     height: auto;
+    
 }
-
 
 div.polaroid {
     margin-left:44%;
@@ -59,6 +59,7 @@ div.polaroid {
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 25px;
+    transition-duration: 0.4s;
   }
   
   div.container {
@@ -66,6 +67,15 @@ div.polaroid {
     padding: 10px 20px;
   }
 
+/* Bannière des catégories*/
+  .banniere {
+    max-width: 450px;
+    height: auto;
+    
+}
+
+
+/* Boutton de connexion et d'inscription*/
 .button {
     background-color: #555555;
     border-radius: 12px;
@@ -84,7 +94,4 @@ div.polaroid {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
   }
 
-.banniere {
-    max-width: 450px;
-    height: auto;
-}
+
