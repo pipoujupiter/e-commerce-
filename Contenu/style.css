@@ -2,10 +2,6 @@ html,body {
     height: 100%;
 }
 
-#header{
-    text-align: center;
-}
-
 body{
     color:black;
     background: antiquewhite;
@@ -21,14 +17,14 @@ h1{
     background: antiquewhite;
     width: 70%;
     margin: auto;
+    text-align: justify;
     padding: 5px 20px;
 }
 
 #contenu{
     margin-bottom: 30px;
-    text-align: justify;
 }
 
-#piedBlog{
+#titre, #piedBlog{
     text-align: center;
 }

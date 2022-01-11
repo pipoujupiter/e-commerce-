@@ -1,17 +1,9 @@
 Fait : 
-lien à la base de données : 15/12
-architecture MVC : 20/12
-modèle object du MVC : commencé le 28 mais ne marchait pas - terminé le 04/01
-ajout d'un routeur : 06/01
-Site qui marche avec un modèle object : 09/01
-ajouter une page de connexion et d'inscription au site : 09/01 + fixé le 10/01
+    -lien à la base de données
+    - architecture MVC
+
+
 
 Problème :
-- double header quand on a un problème de connexion 
-
-
-A Faire : 
-CSS -> Auxane
-faire un panier (si on a le temps)
-    
-
+    -Modele/modele problème sur le if, on a jamais le return du produit (mais bonne correspondance du produit choisit avec la base de données)
+    -soucis d'affichage des images

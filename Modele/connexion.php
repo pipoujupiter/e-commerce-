@@ -1,13 +1,8 @@
-<?php 
+<?php
 
-require_once 'Modele/Modele.php';
+//Effectue la connexion à la BDD
+function getBdd() {
+    $bdd = new PDO('mysql:host=localhost;dbname=web4shop;charset=utf8','web4shop', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
-class Connexion extends Modele {
-
-    //Renvoie vrai si l'utilisateur existe dans la bd, faux sinon
-    public function checkUser($pseudo,$hashMdp){
-        $sql='SELECT * FROM logins WHERE username=? AND password=?';
-        $resultat=$this->executerRequete($sql,array($pseudo,$hashMdp));
-        return ($resultat->RowCount()==1);
-    }
+    return $bdd;
 }
