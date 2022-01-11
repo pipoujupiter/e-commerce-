@@ -5,6 +5,7 @@ require_once 'Controleur/controleurListeProduit.php';
 require_once 'Controleur/controleurProduit.php';
 require_once 'Controleur/controleurInscription.php';
 require_once 'Controleur/controleurConnexion.php';
+require_once 'Controleur/controleurCommentaire.php';
 require_once 'Vue/vue.php';
 
 class Routeur {
@@ -13,6 +14,7 @@ class Routeur {
     private $ctrlProduit;
     private $ctrlInscription;
     private $ctrlConnexion;
+    private $ctrlCommentaire;
 
     public function __construct(){
       $this->ctrlAccueil = new ControleurAccueil();
@@ -20,6 +22,7 @@ class Routeur {
       $this->ctrlProduit = new ControleurProduit();
       $this->ctrlInscription = new ControleurInscription();
       $this->ctrlConnexion = new ControleurConnexion();
+      $this->ctrlCommentaire = new ControleurCommentaire();
     }
     
     //Traite une requête entrante
@@ -41,12 +44,21 @@ class Routeur {
               $id=intval($this->getParametre($_GET,'id'));
               if ($id!=0){
                   $this->ctrlProduit->afficheproduit($id);
+                  
               }
               else {
                   throw new Exception("Identifiant du produit incorrect");
               }
-
           }
+
+          //Ajout de la page commentaire
+          else if($_GET['action']=='afficheCommentaire'){
+            $id=intval($this->getParametre($_GET,'id'));
+            if ($id!=0){
+              $this->ctrlCommentaire->afficheCommentaire($id);
+            }
+          }
+          
             else if($_GET['action']=='inscription'){
               if(!$_SESSION['logged']){ //Si l'utilisateur n'est pas connecté on affiche la page de connexion
                 $this->ctrlInscription->inscription();
