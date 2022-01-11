@@ -59,9 +59,9 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'boissons'),
-(2, 'biscuits'),
-(3, 'fruits secs');
+(1, 'boissons.png'),
+(2, 'biscuits.png'),
+(3, 'fruits secs.png');
 
 -- --------------------------------------------------------
 
