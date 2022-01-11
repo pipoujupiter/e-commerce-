@@ -58,6 +58,20 @@ class Routeur {
               $this->ctrlCommentaire->afficheCommentaire($id);
             }
           }
+          //Ajout d'un nouveau commentaire
+          else if($_GET['action']=='commenter'){
+            $id=intval($this->getParametre($_GET,'id'));
+            if ($id!=0){
+              if(isset($_POST['commentaire'])){
+                $utilisateur=$this->getParametre($_POST,'utilisateur');
+                $titre=$this->getParametre($_POST,'titre');
+                $description=$this->getParametre($_POST,'description');
+                $genre=$this->getParametre($_POST,'genre');
+                $etoile=$this->getParametre($_POST,'etoile');
+                $this->ctrlCommentaire->commenter($utilisateur,$genre,$etoile,$titre,$description,$id);
+              }
+          }
+        }
           
             else if($_GET['action']=='inscription'){
               if(!$_SESSION['logged']){ //Si l'utilisateur n'est pas connecté on affiche la page de connexion

@@ -17,4 +17,12 @@ class ControleurCommentaire{
         $vue = new Vue("Commentaire");
         $vue->generer(array('afficheCommentaire'=> $afficheCommentaire));
     }
+
+    //Ajoute un commentaire d'un produit
+    public function commenter($utilisateur,$genre,$etoile,$titre,$description,$idProduit){
+        // Sauvegarde du commentaire
+        $this->commentaire->ajouterCommentaire($utilisateur,$genre,$etoile,$titre,$description,$idProduit);
+        // Actualisation de l'affichage de la page commentaire
+        $this->afficheCommentaire($idProduit);
+    }
 }
