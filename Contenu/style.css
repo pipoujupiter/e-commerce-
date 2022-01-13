@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     font-family: Helvetica;
+    background-color: #f2f2f2;
   }
   
   body {
@@ -30,6 +31,12 @@
     background-color: #ddd;
     color: black;
   }
+
+ 
+
+  .gitimg{
+    max-width: 100px;
+  }
   
   /* Style du contenu */
   .content {
@@ -41,9 +48,8 @@
   
   /* Style du footer */
   .footer {
-    background-color: #f1f1f1;
+    background-color:white;
     padding: 10px;
-    position: fixed;
     
   }
 
