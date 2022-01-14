@@ -24,7 +24,8 @@
             if($_SESSION['logged']){
               echo ("<a href= \"index.php?action=inscription\">");
               echo ("<p>Déconnexion</p></a>");
-              // echo ('Utilisateur : '.$_SESSION["pseudo"]);
+              echo("<a href=\"index.php?action=profil\">");
+              echo ("<p>Utilisateur : $_SESSION[pseudo]</p></a>");
             }
 
             else{

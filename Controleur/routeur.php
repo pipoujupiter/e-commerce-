@@ -60,19 +60,26 @@ class Routeur {
           }
           //Ajout d'un nouveau commentaire
           else if($_GET['action']=='commenter'){
-            $id=intval($this->getParametre($_GET,'id'));
-            if ($id!=0){
-              if(isset($_POST['commentaire'])){
-                $utilisateur=$this->getParametre($_POST,'utilisateur');
-                $titre=$this->getParametre($_POST,'titre');
-                $description=$this->getParametre($_POST,'description');
-                $genre=$this->getParametre($_POST,'genre');
-                $etoile=$this->getParametre($_POST,'etoile');
-                $this->ctrlCommentaire->commenter($utilisateur,$genre,$etoile,$titre,$description,$id);
+            if ($_SESSION['logged']){
+              $id=intval($this->getParametre($_GET,'id'));
+              if ($id!=0){
+                if(isset($_POST['commentaire'])){
+                  $utilisateur=$_SESSION['pseudo'];
+                  // $utilisateur=$this->getParametre($_POST,'utilisateur');
+                  $titre=$this->getParametre($_POST,'titre');
+                  $description=$this->getParametre($_POST,'description');
+                  $genre=$this->getParametre($_POST,'genre');
+                  $etoile=$this->getParametre($_POST,'etoile');
+                  $this->ctrlCommentaire->commenter($utilisateur,$genre,$etoile,$titre,$description,$id);
+                }
               }
+            }
+            else {
+              throw new Exception("Veuillez-vous connecter pour laisser un commentaire.");
+            }
           }
-        }
-          
+        
+          //Inscription sur le site
             else if($_GET['action']=='inscription'){
               if(!$_SESSION['logged']){ //Si l'utilisateur n'est pas connecté on affiche la page de connexion
                 $this->ctrlInscription->inscription();
@@ -104,6 +111,8 @@ class Routeur {
 
               }
             }
+
+            //Connexion sur le site
             else if($_GET['action']='connexion'){
               $this->ctrlConnexion->connexion();
               if(isset($_POST['validerConnexion'])){

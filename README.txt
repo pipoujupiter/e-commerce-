@@ -7,13 +7,22 @@ Site qui marche avec un modèle object : 09/01
 ajouter une page de connexion et d'inscription au site : 09/01 + fixé le 10/01
 CSS : 10/01 +11/01
 Espace commentaire sur les produits : 11/01
+Tout le monde peut ajouter un commentaire : 11/01
+12/01 -> Premier rendu du travail, deadline allongée jusqu'au 23.
+
+On peut ajouter un commentaire uniquement lorsqu'on est connecté : 13/01
+
 
 Problème :
+- mise en page des commentaires à refaire - cacher le form lorsqu'on est pas connecté ? 
 - double header quand on a un problème de connexion (pas fixé)
 
 
 A Faire : 
-l'utilisateur peut ajouter un commentaire (si on a le temps)
-faire un panier (pas eu le temps)
+faire un panier accessible uniquement à l'utilisateur
+éditer une facture depuis le panier
+créer un profil 
+changer le formulaire d'inscription pour mettre plus d'infos dedans 
+
     
 

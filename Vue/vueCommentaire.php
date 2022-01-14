@@ -20,10 +20,12 @@
 <?php endforeach; ?>
 
 
-<form action="<?="index.php?action=commenter&id=".$commentaire['id_product']?>" method="POST" >
+    
+    <form action="<?="index.php?action=commenter&id=".$commentaire['id_product']?>" method="POST" >
     
     <table>
-        <tr><td>Nom d'utilisateur :</td><td><input type="text" name="utilisateur" required ></td></tr> 
+        
+        <!-- <tr><td>Nom d'utilisateur :</td><td><input type="text" name="utilisateur" required ></td></tr>  -->
         <tr><td><input type="radio" name="genre" value="femme.png" required><label for="femme">Madame</label><br /></td>
         <td><input type="radio" name="genre" value="homme.png"> <label for="homme">Monsieur</label></td></tr> 
         <tr><td>Nombres d'étoiles :</td><td><input type='range' name="etoile" min="0" max="5" step="1"/></td></tr> 
@@ -32,4 +34,10 @@
         <br/>
         <tr><td><input class="button" type="submit" name="commentaire" value="Commenter" >
     </table>
-</form>
+</form> 
+
+
+
+
+
+
