@@ -13,6 +13,7 @@ Tout le monde peut ajouter un commentaire : 11/01
 On peut ajouter un commentaire uniquement lorsqu'on est connecté : 13/01
 changer le formulaire d'inscription pour mettre plus d'infos dedans : 14/01
 Ajout de Bootstrap : 14/01
+Cacher le form de commentaire quand on est pas connecté : 14/01
 
 
 Problème :

@@ -13,6 +13,7 @@ class ControleurConnexion{
     public function connexion(){
         $vue=new Vue('Connexion');
         $vue->generer(array(NULL));
+       
     }
 
     public function ctrlCheckUser($pseudo,$hashMdp){

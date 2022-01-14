@@ -53,6 +53,14 @@ img{
     
 }
 
+/* Bannière des catégories*/
+.banniere {
+  max-width: 450px;
+  height: auto;
+  
+}
+
+/*Page d'affichage des produits en fonction des catégories*/
 .polaroid {
     width: 200px;
     background-color: white;
@@ -66,13 +74,15 @@ img{
     padding: 10px 15px;
   }
 
-/* Bannière des catégories*/
-  .banniere {
-    max-width: 450px;
-    height: auto;
-    
+/*page produit */
+
+.imgproduit{
+  max-width: 300px;
 }
 
+.containerProduct {
+  width: 50%;
+}
 
 /* Boutton de connexion et d'inscription*/
 .button {
