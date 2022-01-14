@@ -1,29 +1,35 @@
 <?php $this->titre= 'Commentaire';?>
 
 
-
-<?php foreach ($afficheCommentaire as $commentaire): ?>
-    
-        <div class="infoUtilisateur">
-            <p><h4>Utilisateur :</h4></p>
-            <img class="photoUtilisateur" src="<?="Contenu/images/".$commentaire['photo_user']?>">
-            <br>
-            <div class="nomUtilisateur"><?=$commentaire['name_user']?></div>
-            <?=$commentaire['stars']?> <img class="etoile" src="Contenu/images/review_star.png"/>
-            <br>
-            <h3><?=$commentaire['title']?></h3>
-            <?=$commentaire['description']?>
-            <br>
-            <br>
-        </div>
-        <br>       
-<?php endforeach; ?>
+<div class="container">
+    <div class="row">
+        <?php foreach ($afficheCommentaire as $commentaire): ?>
+            
+            <div class="col-md-3 colComment">
+        </br>
+                    <h4>Utilisateur :</h4>
+                    <img class="photoUtilisateur" src="<?="Contenu/images/".$commentaire['photo_user']?>">
+        </br>
+                    <?=$commentaire['name_user']?>
+        </br>
+                    <?=$commentaire['stars']?> <img class="etoile" src="Contenu/images/review_star.png"/>
+        </br>
+                    <strong><?=$commentaire['title']?></strong></br>
+                    <?=$commentaire['description']?>
+                    <br>
+                    <br>
+            </div>
+        </br>
+        </br>       
+        <?php endforeach; ?>
+    </div>
+</div>
 
 
 <?php 
 if ($_SESSION['logged']): ?>
 
-  
+    <div class="container">
     <form action="<?="index.php?action=commenter&id=".$commentaire['id_product']?>" method="POST" >
     
     <table>
@@ -38,6 +44,7 @@ if ($_SESSION['logged']): ?>
         <tr><td><input class="button" type="submit" name="commentaire" value="Commenter" >
     </table>
 </form> 
+    </div>
 <?php else : ?>
     <p> Veuillez-vous connecter pour laisser un commentaire. </p>
 <?php endif; ?>

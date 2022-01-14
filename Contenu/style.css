@@ -109,14 +109,12 @@ img{
 
 /* Espace commentaire */
 /* Style de la partie gauche navigation utilisateur*/
-.infoUtilisateur {
-  height: 30%;
-  width: 250px;
-  position: relative;
+
+.colComment{
+  
   background-color: #555555;
-  overflow-x: hidden;
-  
-  
+  border-radius: 20px;
+  margin: 20px;
 }
 
 .photoUtilisateur{
@@ -124,9 +122,6 @@ img{
     height: auto;
 }
 
-.nomUtilisateur {
-  color: #ddd;
-}
 
 .etoile {
   max-width: 15px;
