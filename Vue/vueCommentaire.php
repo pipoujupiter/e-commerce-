@@ -20,7 +20,10 @@
 <?php endforeach; ?>
 
 
-    
+<?php 
+if ($_SESSION['logged']): ?>
+
+  
     <form action="<?="index.php?action=commenter&id=".$commentaire['id_product']?>" method="POST" >
     
     <table>
@@ -35,6 +38,9 @@
         <tr><td><input class="button" type="submit" name="commentaire" value="Commenter" >
     </table>
 </form> 
+<?php else : ?>
+    <p> Veuillez-vous connecter pour laisser un commentaire. </p>
+<?php endif; ?>
 
 
 
