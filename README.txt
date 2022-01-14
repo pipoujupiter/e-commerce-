@@ -17,7 +17,7 @@ Ajout de Bootstrap : 14/01
 
 Problème :
 - mise en page des commentaires à refaire - cacher le form lorsqu'on est pas connecté ? 
-- probleme dans les tables logins et customer par de lien entre id et id_customer
+- probleme dans les tables logins et customer par de lien entre id et id_customer : fixé le 14/01
 - double header quand on a un problème de connexion (pas fixé)
 
 

@@ -3,12 +3,7 @@
     font-family: Helvetica;
     
   }
-  
-  body {
-    margin: 0;
-    text-align: justify ;
-  }
-  
+
   /*Style barre de navigation */
   .topnav {
     overflow: hidden;
@@ -58,18 +53,17 @@ img{
     
 }
 
-div.polaroid {
-    margin-left:43%;
+.polaroid {
     width: 200px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 25px;
-    transition-duration: 0.4s;
+    
   }
   
-  div.container {
+ .container {
     text-align: center;
-    padding: 10px 20px;
+    padding: 10px 15px;
   }
 
 /* Bannière des catégories*/
