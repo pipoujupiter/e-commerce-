@@ -91,8 +91,23 @@ class Routeur {
 
                     if($this->ctrlInscription->ctrlCheckAvaibility($pseudo)){
                       $hashMdpInscription=sha1($this->getParametre($_POST,'mdpInscription'));
-                      $this->ctrlInscription->ctrlRegister($pseudo,$hashMdpInscription);
-                      $_SESSION['logged']=true; //Une fois enregistré on connecte l'utilisateur
+                      
+                      //Remplir les infos personnelles de l'utilisateur 
+                      $nomuser=$this->getParametre($_POST,'surname');
+                      $prenomuser=$this->getParametre($_POST,'forname');
+                      $adresse=$this->getParametre($_POST,'add1');
+                      $compladresse=$this->getParametre($_POST,'add2');
+                      $ville=$this->getParametre($_POST,'add3');
+                      $codepostal=$this->getParametre($_POST,'postcode');
+                      $telephone=$this->getParametre($_POST,'phone');
+                      $email=$this->getParametre($_POST,'email');
+
+                      $this->ctrlInscription->ctrlRegister($nomuser,$prenomuser,
+                      $adresse,$compladresse,$ville,$codepostal,$telephone,$email,$pseudo,$hashMdpInscription);
+
+
+                      //Une fois enregistré on connecte l'utilisateur
+                      $_SESSION['logged']=true;
                       $_SESSION['pseudo']=$pseudo;
                       header('Location:index.php');
                     }

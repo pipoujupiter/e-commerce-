@@ -20,7 +20,10 @@ class ControleurInscription {
        return $this->inscription->checkAvaibility($pseudo);
     }
 
-    public function ctrlRegister($pseudo,$hashMdp){
-        $this->inscription->register($pseudo,$hashMdp);
+    public function ctrlRegister($nomuser,$prenomuser,
+    $adresse,$compladresse,$ville,$codepostal,$telephone,$email,$pseudo,$hashMdpInscription){
+        $this->inscription->register($nomuser,$prenomuser,
+        $adresse,$compladresse,$ville,$codepostal,$telephone,$email,$pseudo,$hashMdpInscription);
     }
+
 }

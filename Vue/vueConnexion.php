@@ -1,9 +1,20 @@
 <?php $this->titre='Connexion' ?>
 
 <form action="index.php?action=connexion" method="POST">
-    <table>
-        <tr><td>Nom d'utilisateur :</td><td><input type="text" name="pseudoConnexion" required ></td></tr>
-        <tr><td>Mot de passe :</td><td><input type="password" name="mdpConnexion" required></td></tr>
-        <br/>
-        <tr><td><input class="button" type="submit" name="validerConnexion" value="Se connecter">
-    </table>   
+    <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="pseudoConnexion">Nom d'utilisateur </label>
+                <input type="text" name="pseudoConnexion" class="form-control" id="pseudoConnexion" required>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="mdpConnexion">Mot de passe </label>
+                <input name="mdpConnexion" type="password" class="form-control" id="mdpConnexion" required>
+            </div>
+    </div>
+    <div class="form-row">
+            <div class="col-md-3">
+                <input class="button" type="submit" name="validerConnexion" value="Se connecter">
+            </div>
+    </div>
+    
+</form>
