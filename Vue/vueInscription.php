@@ -1,6 +1,7 @@
 <?php $this->titre='Inscription' ?>
 
 
+
 <form action="index.php?action=inscription" method="POST">
     
         <div class="form-group col-sm-4">

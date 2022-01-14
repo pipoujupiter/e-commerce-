@@ -109,8 +109,10 @@ class Routeur {
                       //Une fois enregistré on connecte l'utilisateur
                       $_SESSION['logged']=true;
                       $_SESSION['pseudo']=$pseudo;
-                      header('Location:index.php');
+                      // header('Location:index.php');
+                      echo('<script> location.replace("index.php"); </script>');
                     }
+
                     else{
                       throw new Exception("Utilisateur déjà existant");
                     }
@@ -122,6 +124,7 @@ class Routeur {
               }
               else{
                 $_SESSION['logged']=false;
+                $_SESSION['pseudo']=NULL;
                 header('Location:index.php');
 
               }

@@ -31,7 +31,8 @@
               echo ("<div class='col-sm-auto'><a href= \"index.php?action=inscription\">");
               echo ("<p>Déconnexion</p></a></div>");
               echo("<div class='col-sm-auto'><a href=\"index.php?action=profil\">");
-              echo ("<p>Utilisateur : $_SESSION[pseudo]</p></a></div>");
+              echo("<p> Utilisateur : ");
+              echo ($_SESSION["pseudo"].'</p></a></div>');
             }
 
             else{
