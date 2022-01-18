@@ -6,7 +6,7 @@
         <?php foreach ($afficheCommentaire as $commentaire): ?>
             
             
-            <div class="col-3 mt-3 center " style="border-radius: 10px; background-color:#f2f2f2; padding: 10px; margin:10%;
+            <div class="col-3 mt-2 center " style="border-radius: 10px; background-color:#f2f2f2; padding: 10px; margin:10%;
             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);">
         </br>
                     <h4>Utilisateur :</h4>

@@ -1,9 +1,9 @@
 <?php $this->titre='Panier'; 
 
 if($_SESSION['logged']): ?>
-<div class="col-10 mx-auto mt-3 " style="border-radius: 12px; background-color:#f2f2f2; padding: 10px; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)">
+<div class="col-10 mx-auto mt-2 " style="border-radius: 10px; background-color:#f2f2f2; padding: 10px; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)">
   <div class="row pt-2">
-    <div class="col text-center"><h2><strong>Mon panier</strong></h2></div>
+    <div class="col text-center"><h2><strong>Panier</strong></h2></div>
     <hr/>
   </div>
   <?php if(isset($produits)):
@@ -31,7 +31,7 @@ if($_SESSION['logged']): ?>
   <div class="row pb-3">
     <div class="col text-center"><a href="index.php?action=saisirAdresse" class="btn btn-danger">Passer la commande</a></div>
     <div class="col text-center"><form action="index.php?action=panier" method="POST"><input type="submit"  name="viderPanier" class="btn btn-danger" value="Vider le panier.."></form></div>
-    <div class="col text-center">Total à payer (TTC) : <?=$totalPrice?> €</div>
+    <div class="col text-center">Total à payer (TTC) : <?=$totalPrix?> €</div>
   </div>
   <?php endif;?>
   <?php else: ?>

@@ -49,7 +49,6 @@ class Routeur {
               $id=intval($this->getParametre($_GET,'id'));
               if ($id!=0){
                   $this->ctrlProduit->afficheproduit($id);
-                  
               }
               else {
                   throw new Exception("Identifiant du produit incorrect");
@@ -240,7 +239,7 @@ class Routeur {
     }
 
     //Recherche un paramètre dans un tableau
-    private function getparametre($tableau,$nom){
+    private function getParametre($tableau,$nom){
       if(isset($tableau[$nom])){
           return $tableau[$nom];
       }
