@@ -10,6 +10,12 @@ class Inscription extends Modele {
         $resultat=$this->executerRequete($sql,array($pseudo));
         return ($resultat->RowCount()==0);
     }
+    //Renvoie vrai si l'utilisateur peut être crée, faux sinon
+    public function checkAvaibilityEmail($email){
+        $sql='SELECT email FROM customers WHERE email=?';
+        $resultat=$this->executerRequete($sql,array($email));
+        return ($resultat->RowCount()==0);
+    }
 
     //Insère le nouvel utilisateur dans la table logins et customers
     public function register($nomuser,$prenomuser,

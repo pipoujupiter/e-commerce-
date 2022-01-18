@@ -156,20 +156,21 @@ class Routeur {
 
                   if($this->getParametre($_POST,'mdpInscription')==$this->getParametre($_POST,'confirmerMdpInscription')){
                     $pseudo=$this->getParametre($_POST,'pseudoInscription');
+                    
+                    //Remplir les infos personnelles de l'utilisateur 
+                    $nomuser=$this->getParametre($_POST,'surname');
+                    $prenomuser=$this->getParametre($_POST,'forname');
+                    $adresse=$this->getParametre($_POST,'add1');
+                    $compladresse=$this->getParametre($_POST,'add2');
+                    $ville=$this->getParametre($_POST,'add3');
+                    $codepostal=$this->getParametre($_POST,'postcode');
+                    $telephone=$this->getParametre($_POST,'phone');
+                    $email=$this->getParametre($_POST,'email');
 
-                    if($this->ctrlInscription->ctrlCheckAvaibility($pseudo)){
+                    if($this->ctrlInscription->ctrlCheckAvaibility($pseudo)&&$this->ctrlInscription->ctrlCheckAvaibility($email)){
                       $hashMdpInscription=sha1($this->getParametre($_POST,'mdpInscription'));
                       
-                      //Remplir les infos personnelles de l'utilisateur 
-                      $nomuser=$this->getParametre($_POST,'surname');
-                      $prenomuser=$this->getParametre($_POST,'forname');
-                      $adresse=$this->getParametre($_POST,'add1');
-                      $compladresse=$this->getParametre($_POST,'add2');
-                      $ville=$this->getParametre($_POST,'add3');
-                      $codepostal=$this->getParametre($_POST,'postcode');
-                      $telephone=$this->getParametre($_POST,'phone');
-                      $email=$this->getParametre($_POST,'email');
-
+                    
                       $this->ctrlInscription->ctrlRegister($nomuser,$prenomuser,
                       $adresse,$compladresse,$ville,$codepostal,$telephone,$email,$pseudo,$hashMdpInscription);
 
