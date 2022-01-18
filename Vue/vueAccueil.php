@@ -6,7 +6,8 @@
     
     <a href="<?="index.php?vue=produit&action=listeparcategorie&cat=".$categorie['id'] ?>">
            
-            <img class="banniere" src="<?= "Contenu/images/".$categorie['name']?>">
+            <img src="<?= "Contenu/images/".$categorie['name']?>" style="max-width: 450px;
+  height: auto;">
             <br>
             <br>
           

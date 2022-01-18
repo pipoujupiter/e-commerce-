@@ -1,5 +1,4 @@
 * {
-    /* box-sizing: border-box; */
     font-family: Helvetica;
     
   }
@@ -44,45 +43,13 @@
     text-align: center;
     
   }
-  .gitimg{
-    max-width: 100px;
-  }
-
+  
 /*Images*/
 img{
     max-width: 200px;
     height: auto;
     
 }
-
-/* Bannière des catégories*/
-.banniere {
-  max-width: 450px;
-  height: auto;
-  
-}
-
-/*Page d'affichage des produits en fonction des catégories*/
-.polaroid {
-    width: 200px;
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 25px;
-    
-  }
-  
- .container {
-   align-items: center;
-    text-align: center;
-    padding: 10px 15px;
-  }
-
-/*page produit */
-
-.imgproduit{
-  max-width: 400px;
-}
-
 
 /* Boutton de connexion et d'inscription*/
 .button {
@@ -103,25 +70,12 @@ img{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
   }
 
-.infoperso{
-  text-align: left;
-}
-
-/* Espace commentaire */
-/* Style de la partie gauche navigation utilisateur*/
 
 
 
-.photoUtilisateur{
-  max-width: 100px;
-    height: auto;
-}
 
 
-.etoile {
-  max-width: 15px;
-    height: auto;
-}
+
 
 
 

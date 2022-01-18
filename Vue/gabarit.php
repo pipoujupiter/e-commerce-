@@ -59,7 +59,7 @@
 
   <footer>
     <div class="footer">
-        <a href="https://forge.univ-lyon1.fr/groupe-alice-auxane/projet_web"><img src="Contenu/images/gitlab_logo.png"/></a>
+        <a href="https://forge.univ-lyon1.fr/groupe-alice-auxane/projet_web"><img src="Contenu/images/gitlab_logo.png" style="max-width: 150px;"/></a>
 
     </div>        
     </footer>

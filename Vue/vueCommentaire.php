@@ -2,7 +2,7 @@
 
 
 <div class="container">
-    <div class="row pt-2">
+    <div class="row align-items-center pt-2">
         <?php foreach ($afficheCommentaire as $commentaire): ?>
             
             
@@ -10,11 +10,12 @@
             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);">
         </br>
                     <h4>Utilisateur :</h4>
-                    <img class="photoUtilisateur" src="<?="Contenu/images/".$commentaire['photo_user']?>">
+                    <img src="<?="Contenu/images/".$commentaire['photo_user']?>" style="max-width: 100px;">
         </br>
                     <?=$commentaire['name_user']?>
         </br>
-                    <?=$commentaire['stars']?> <img class="etoile" src="Contenu/images/review_star.png"/>
+                    <?=$commentaire['stars']?> <img src="Contenu/images/review_star.png" style="max-width: 15px;
+    height: auto;"/>
         </br>
                     <strong><?=$commentaire['title']?></strong></br>
                     <?=$commentaire['description']?>

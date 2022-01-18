@@ -62,7 +62,7 @@
             <input type="email" name="email" class="form-control" id="email"  required>
         </div> 
 
-        <div class="form-row">
+        <div class="form-row ">
             <div class="col-md-3">
                 <input class="button" type="submit" name="validerInscription" value="S'inscrire">
             </div>
