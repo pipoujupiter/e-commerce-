@@ -1,6 +1,6 @@
 <?php $this->titre=$produit['name'];?>
 
-
+<div class="container">
 <div class="col-7  mx-auto mt-2 " style="border-radius: 10px; background-color:#f2f2f2; padding: 10px; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)">
   <div class="row pt-2">
         <div class="col">
@@ -16,6 +16,8 @@
     </div>
     
     <hr>
+<?php 
+if ($_SESSION['logged']): ?>   
     <div class="row pt-2">
         <div class="col">
             <form action="<?="index.php?action=affiche&id=".$produit['id'];?>" method="POST">
@@ -24,14 +26,11 @@
                 </div>
                 <input class="button" type="submit" name="ajoutPanier" value="Ajouter au panier">
             </form>
+            <?php else : ?>
+                <p> Veuillez-vous connecter pour commander ce produit. </p>
+            <?php endif; ?>
         </div>
     </div>
 </div>
-  
 
-    
-
-      
-
-    
-
+</div>
