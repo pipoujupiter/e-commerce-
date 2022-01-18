@@ -19,6 +19,7 @@ if($_SESSION['logged']): ?>
     </div>
     <div class="col text-center">
       <p>Quantité : <?=$produit['quantity'] ?></p>
+      <p> Prix : <?=$produit['price']*$produit['quantity'] ?> € </p>
     </div>
     
   </div>
@@ -31,7 +32,7 @@ if($_SESSION['logged']): ?>
   <hr>
   <div class="row align-items-center pt-2">
     <div class="col text-center"><a href="index.php?action=saisirAdresse" class="button">Passer la commande</a></div>
-    <div class="col text-center"><form action="index.php?action=panier" method="POST"><input type="submit"  name="viderPanier" class="button" value="Vider le panier.."></form></div>
+    <div class="col text-center"><form action="index.php?action=panier" method="POST"><input type="submit"  name="viderPanier" class="button" value="Vider le panier"></form></div>
   </div>
   <?php endif;?>
   <?php else: ?>
