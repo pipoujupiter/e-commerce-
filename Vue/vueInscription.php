@@ -1,7 +1,7 @@
 <?php $this->titre='Inscription' ?>
 
 
-
+<div class="col-10 mx-auto mt-3 " style="padding: 10px; ">
 <form action="index.php?action=inscription" method="POST">
     
         <div class="form-group col-sm-4">
@@ -20,7 +20,7 @@
                 <input name="confirmerMdpInscription" type="password" class="form-control" id="confirmerMdpInscription" required>
             </div>
         </div>
-
+        <hr>
         <!-- Informations personnelles de l'utilisateur -->
         <div class="form-row">
             <div class="form-group col-3">
@@ -66,9 +66,7 @@
             <div class="col-md-3">
                 <input class="button" type="submit" name="validerInscription" value="S'inscrire">
             </div>
-        </div>
-    
-
-    
+        </div>   
 </form>
+</div>
     

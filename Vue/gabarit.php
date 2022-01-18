@@ -17,7 +17,7 @@
       <div class="topnav">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-9">
+          <div class="col-8">
             <a href="index.php"><img class="logo" src="Contenu/images/logo.png"/></a>
           </div>
           
@@ -28,11 +28,13 @@
             }
 
             if($_SESSION['logged']){
-              echo ("<div class='col-sm-auto'><a href= \"index.php?action=inscription\">");
+              echo ("<div class='col-sm'><a href= \"index.php?action=inscription\">");
               echo ("<p>Déconnexion</p></a></div>");
-              echo("<div class='col-sm-auto'><a href=\"index.php?action=profil\">");
+              echo("<div class='col-sm'><a href=\"index.php?action=profil\">");
               echo("<p> Utilisateur : ");
               echo ($_SESSION["pseudo"].'</p></a></div>');
+              echo("<div class='col-sm'><a href= \"index.php?action=panier\">");
+              echo ("<p>Panier</p></a></div>");
             }
 
             else{

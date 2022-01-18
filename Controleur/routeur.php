@@ -6,6 +6,7 @@ require_once 'Controleur/controleurProduit.php';
 require_once 'Controleur/controleurInscription.php';
 require_once 'Controleur/controleurConnexion.php';
 require_once 'Controleur/controleurCommentaire.php';
+require_once 'Controleur/controleurPanier.php';
 require_once 'Vue/vue.php';
 
 class Routeur {
@@ -15,6 +16,7 @@ class Routeur {
     private $ctrlInscription;
     private $ctrlConnexion;
     private $ctrlCommentaire;
+    private $ctrlPanier;
 
     public function __construct(){
       $this->ctrlAccueil = new ControleurAccueil();
@@ -23,11 +25,14 @@ class Routeur {
       $this->ctrlInscription = new ControleurInscription();
       $this->ctrlConnexion = new ControleurConnexion();
       $this->ctrlCommentaire = new ControleurCommentaire();
+      $this->ctrlPanier = new ControleurPanier();
     }
     
     //Traite une requête entrante
     public function routerRequete(){
         try {
+
+          //Affichage des produits en fonction de la catégorie choisie
           if(isset($_GET['action'])){
             if($_GET['action']=='listeparcategorie'){
               $id=intval($this->getParametre($_GET,'cat')); //intval renvoie la valeur numerique du parametre ou 0 en cas d'echec
@@ -49,9 +54,46 @@ class Routeur {
               else {
                   throw new Exception("Identifiant du produit incorrect");
               }
+
+              if(isset($_POST['ajoutPanier'])){
+                if($_SESSION['logged']){
+                  $id=intval($this->getParametre($_GET,'id'));
+                  $pseudoClient=$this->getParametre($_SESSION,'pseudo');
+                  $client=$this->ctrlProduit->ctrlGetCustomerId($pseudoClient);
+                  $idClient=$client['customer_id'];
+                  $qteProduit=intval($this->getParametre($_POST,'quantite'));
+
+                  if($this->ctrlProduit->ctrlCheckOrder($idClient)){ //On regarde si l'utilisateur a une commande en cours
+                    $idCommande=$this->ctrlProduit->ctrlGetIdOrder($idClient,0);
+    
+                    //On vérifie qu'il n'y a pas de problème de stock
+                    if($this->ctrlProduit->ctrlAddProduct($idCommande,$id,$qteProduit)){
+                    echo('<script> location.replace("index.php?action=panier"); </script>');
+                    }
+                    else{
+                      throw new Exception("Produit en rupture de stock/en quantité insuffisante");
+                    }
+                  }
+                  else{
+                    //Si l'utilisateur n'a pas de commande en cours il faut en créer une
+                    $this->ctrlProduit->ctrlCreateOrder($idClient,$_SESSION['id']);
+    
+                    $idCommande=$this->ctrlProduit->ctrlGetIdOrder($idClient,0);
+    
+                    if($this->ctrlProduit->ctrlAddProduct($idCommande,$id,$qteProduit)){
+                      echo('<script> location.replace("index.php?action=panier"); </script>');
+                    }
+                    else{
+                      throw new Exception("Produit en rupture de stock/en quantité insuffisante");
+                    }
+                  }
+                }
+                
+              }
+
           }
 
-          //Ajout de la page commentaire
+          //Affichage des commentaires d'un produit
           else if($_GET['action']=='afficheCommentaire'){
             $id=intval($this->getParametre($_GET,'id'));
             if ($id!=0){
@@ -65,7 +107,7 @@ class Routeur {
               if ($id!=0){
                 if(isset($_POST['commentaire'])){
                   $utilisateur=$_SESSION['pseudo'];
-                  // $utilisateur=$this->getParametre($_POST,'utilisateur');
+                  
                   $titre=$this->getParametre($_POST,'titre');
                   $description=$this->getParametre($_POST,'description');
                   $genre=$this->getParametre($_POST,'genre');
@@ -78,8 +120,35 @@ class Routeur {
               throw new Exception("Veuillez-vous connecter pour laisser un commentaire.");
             }
           }
+
+          //Affichage du panier de l'utilisateur
+          else if($_GET['action']=='panier'){
+            if($_SESSION['logged']){
+              $pseudoClient=$this->getParametre($_SESSION,'pseudo');
+  
+              $client=$this->ctrlProduit->ctrlGetCustomerId($pseudoClient);
+              $idClient=$client['customer_id'];
+                if($this->ctrlProduit->ctrlCheckOrder($idClient)) {
+                $idCommande=$this->ctrlProduit->ctrlGetIdOrder($idClient,0);
+  
+                $this->ctrlPanier->ctrlSetTotalOrder($idCommande);
+  
+                $this->ctrlPanier->panier($idClient,$idCommande);
+  
+                if(isset($_POST['viderPanier'])) {
+                  $this->ctrlPanier->ctrlViderPanier($idCommande);
+                  echo('<script> location.replace("index.php?action=panier"); </script>');
+                }
+              }
+              else{
+                $this->ctrlPanier->paniernoConnect();
+              }
+            }
+
+
+          }
         
-          //Inscription sur le site
+          //Affichage d'inscription sur le site
             else if($_GET['action']=='inscription'){
               if(!$_SESSION['logged']){ //Si l'utilisateur n'est pas connecté on affiche la page de connexion
                 $this->ctrlInscription->inscription();
@@ -109,7 +178,7 @@ class Routeur {
                       //Une fois enregistré on connecte l'utilisateur
                       $_SESSION['logged']=true;
                       $_SESSION['pseudo']=$pseudo;
-                      // header('Location:index.php');
+                      
                       echo('<script> location.replace("index.php"); </script>');
                     }
 
@@ -130,7 +199,7 @@ class Routeur {
               }
             }
 
-            //Connexion sur le site
+            //Affichage de la connexion sur le site
             else if($_GET['action']='connexion'){
               $this->ctrlConnexion->connexion();
               if(isset($_POST['validerConnexion'])){
@@ -148,10 +217,13 @@ class Routeur {
                 }
               }
             }
+
             else{
               throw new Exception("Action non valide");
             }
           }
+          
+
           else{ //Aucune action définie : affichage de l'accueil
             $this->ctrlAccueil->listecategorie();
           }

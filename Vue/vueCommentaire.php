@@ -2,10 +2,12 @@
 
 
 <div class="container">
-    <div class="row">
+    <div class="row pt-2">
         <?php foreach ($afficheCommentaire as $commentaire): ?>
             
-            <div class="col-md-3 colComment">
+            
+            <div class="col-3 mt-3 center " style="border-radius: 10px; background-color:#f2f2f2; padding: 10px; margin:10%;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);">
         </br>
                     <h4>Utilisateur :</h4>
                     <img class="photoUtilisateur" src="<?="Contenu/images/".$commentaire['photo_user']?>">
@@ -29,22 +31,41 @@
 <?php 
 if ($_SESSION['logged']): ?>
 
-    <div class="container">
+<div class="col-10  mx-auto mt-3 " style="padding: 10px; ">
     <form action="<?="index.php?action=commenter&id=".$commentaire['id_product']?>" method="POST" >
-    
-    <table>
-        
-        <!-- <tr><td>Nom d'utilisateur :</td><td><input type="text" name="utilisateur" required ></td></tr>  -->
-        <tr><td><input type="radio" name="genre" value="femme.png" required><label for="femme">Madame</label><br /></td>
-        <td><input type="radio" name="genre" value="homme.png"> <label for="homme">Monsieur</label></td></tr> 
-        <tr><td>Nombres d'étoiles :</td><td><input type='range' name="etoile" min="0" max="5" step="1"/></td></tr> 
-        <tr><td>Titre :</td><td><input type="text" name="titre" ></td></tr>
-        <tr><td>Commentaire :</td><td><input type="text" name="description" required ></td></tr>
-        <br/>
-        <tr><td><input class="button" type="submit" name="commentaire" value="Commenter" >
-    </table>
-</form> 
-    </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="femme">Madame</label>
+                <input type="radio" name="genre" value="femme.png" required>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="homme">Monsieur</label>
+                <input type="radio" name="genre" value="homme.png">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="etoile">Etoiles</label>
+                <input type='range' name="etoile" min="0" max="5" step="1"/>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="titre">Titre</label>
+                <input type="text" name="titre" >
+            </div>
+            <div class="form-group col-md-3">
+                <label for="description">Description</label>
+                <input type="text" name="description" required >
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <input class="button" type="submit" name="commentaire" value="Commenter" >
+            </div>
+        </div>
+    </form> 
+</div>
 <?php else : ?>
     <p> Veuillez-vous connecter pour laisser un commentaire. </p>
 <?php endif; ?>

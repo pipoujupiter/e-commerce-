@@ -1,7 +1,7 @@
 <?php $this->titre='Connexion' ?>
 
 
-
+<div class="col-10  mx-auto mt-3 " style="padding: 10px; ">
 <form action="index.php?action=connexion" method="POST">
     <div class="form-row">
             <div class="form-group col-md-3">
@@ -20,3 +20,4 @@
     </div>
     
 </form>
+</div>
