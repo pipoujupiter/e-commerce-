@@ -31,7 +31,7 @@ if($_SESSION['logged']): ?>
   </div>
   <hr>
   <div class="row align-items-center pt-2">
-    <div class="col text-center"><form action="index.php?action=commande" method="POST"><input type="submit" name="command" class="button" value="Passer la commande"></form></div>
+    <div class="col text-center"><form  method="POST"><input type="submit" name="command" class="button" value="Passer la commande"></form></div>
     <div class="col text-center"><form action="index.php?action=panier" method="POST"><input type="submit"  name="viderPanier" class="button" value="Vider le panier"></form></div>
   </div>
   <?php endif;?>

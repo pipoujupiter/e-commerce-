@@ -146,8 +146,11 @@ class Routeur {
                 $this->ctrlPanier->paniernoConnect();
               }
             }
+          }
 
-
+          //Affichage de la page de la commande 
+          else if($_GET['action']=='commande'){
+            
           }
         
           //Affichage d'inscription sur le site

@@ -15,6 +15,7 @@ changer le formulaire d'inscription pour mettre plus d'infos dedans : 14/01
 Ajout de Bootstrap : 14/01
 Cacher le form de commentaire quand on est pas connecté : 14/01
 Panier accessible uniquement à l'utilisateur connecté : 18/01
+créer un profil ou l'on peut modifier nos infos persos : 22/01
 
 
 Problème :
@@ -24,9 +25,9 @@ Problème :
 
 
 A Faire : 
-Confirmation de la commande par l'utilisateur
+
 éditer une facture depuis le panier
-créer un profil ou l'on peut modifier nos infos persos
+
 
 
     
