@@ -7,6 +7,7 @@ require_once 'Controleur/controleurInscription.php';
 require_once 'Controleur/controleurConnexion.php';
 require_once 'Controleur/controleurCommentaire.php';
 require_once 'Controleur/controleurPanier.php';
+require_once 'COntroleur/controleurProfil.php';
 require_once 'Vue/vue.php';
 
 class Routeur {
@@ -17,6 +18,7 @@ class Routeur {
     private $ctrlConnexion;
     private $ctrlCommentaire;
     private $ctrlPanier;
+    private $ctrlProfil;
 
     public function __construct(){
       $this->ctrlAccueil = new ControleurAccueil();
@@ -26,6 +28,7 @@ class Routeur {
       $this->ctrlConnexion = new ControleurConnexion();
       $this->ctrlCommentaire = new ControleurCommentaire();
       $this->ctrlPanier = new ControleurPanier();
+      $this->ctrlProfil = new ControleurProfil();
     }
     
     //Traite une requête entrante
@@ -200,7 +203,7 @@ class Routeur {
             }
 
             //Affichage de la connexion sur le site
-            else if($_GET['action']='connexion'){
+            else if($_GET['action']=='connexion'){
               $this->ctrlConnexion->connexion();
               if(isset($_POST['validerConnexion'])){
 
@@ -215,6 +218,33 @@ class Routeur {
                 else{
                   throw new Exception("Utilisateur non enregistré");
                 }
+              }
+            }
+
+            //Affichage du profil d'utilisateur
+            else if($_GET['action']=='profil'){
+              if($_SESSION['logged']){
+                $pseudoClient=$this->getParametre($_SESSION,'pseudo');
+                $client=$this->ctrlProduit->ctrlGetCustomerId($pseudoClient);
+                $idClient=$client['customer_id'];
+
+                $this->ctrlProfil->afficheProfil($idClient);
+              }
+              else {
+                throw new Exception("Veuillez-vous connecter pour accéder à votre profil.");
+              }
+
+              if(isset($_POST['changementProfil'])){
+
+                //Récupération des informations rentrées dans le formulaire
+                $adresse=$this->getParametre($_POST,'add1');
+                $compladresse=$this->getParametre($_POST,'add2');
+                $ville=$this->getParametre($_POST,'add3');
+                $codepostal=$this->getParametre($_POST,'postcode');
+                $telephone=$this->getParametre($_POST,'phone');
+                $email=$this->getParametre($_POST,'email');
+
+                $this->ctrlProfil->setChangement($idClient,$adresse,$compladresse,$ville,$codepostal,$telephone,$email);
               }
             }
 
