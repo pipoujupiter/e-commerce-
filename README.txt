@@ -24,7 +24,7 @@ Problème :
 
 
 A Faire : 
-
+Confirmation de la commande par l'utilisateur
 éditer une facture depuis le panier
 créer un profil ou l'on peut modifier nos infos persos
 

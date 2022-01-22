@@ -18,7 +18,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-8">
-            <a href="index.php"><img class="logo" src="Contenu/images/logo.png"/></a>
+            <a href="index.php"><img class="logo" src="Contenu/images/logo2.png"/></a>
           </div>
           
         <?php 
